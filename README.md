@@ -1,4 +1,4 @@
-# m-i-d
-The code of m-i-d
+# mikd
+The code of mikd
 
 The detailed instructions will be released upon acceptance
