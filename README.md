@@ -75,14 +75,3 @@ python train_kd.py --tckpt /data/checkpoints/name_of_teacher_checkpoint.ckpt --s
 ```
 
 ```--tckpt``` refers to the path of teacher model checkpoint. And you can change student model by revising ```--smodel```
-
-## Citation
-@ARTICLE{9491090,
-  author={Qin, Dian and Bu, Jia-Jun and Liu, Zhe and Shen, Xin and Zhou, Sheng and Gu, Jing-Jun and Wang, Zhi-Hua and Wu, Lei and Dai, Hui-Fen},
-  journal={IEEE Transactions on Medical Imaging}, 
-  title={Efficient Medical Image Segmentation Based on Knowledge Distillation}, 
-  year={2021},
-  volume={},
-  number={},
-  pages={1-1},
-  doi={10.1109/TMI.2021.3098703}}
