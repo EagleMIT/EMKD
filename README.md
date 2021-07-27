@@ -1,5 +1,5 @@
 # EMKD
-The code of IEEE TMI paper [Efficient Medical Image Segmentation Based on Knowledge Distillation](https://ieeexplore.ieee.org/abstract/document/9491090)
+The code repository of IEEE TMI paper [Efficient Medical Image Segmentation Based on Knowledge Distillation](https://ieeexplore.ieee.org/abstract/document/9491090)
 
 # Structure of this repository
 This repository is organized as:
