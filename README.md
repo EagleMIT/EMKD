@@ -50,6 +50,14 @@ python scripts/SliceMaker.py --inpath /data/kits19/data --outpath /data/kits/tra
 
 ### LiTS
 Similar to KiTS but you may make some adjustments in running ```scripts/SliceMaker.py``` 
+```
+lits
+├── Training_Batch
+└── Test-Data
+```
+```
+python scripts/SliceMaker.py --inpath /data/lits/Training-Batch --outpath /data/lits/train --dataset lits --task tumor
+```
 
 ## Running
 ### Training Teacher Model
