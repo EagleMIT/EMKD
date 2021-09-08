@@ -13,6 +13,7 @@ parser.add_argument('--out_path', type=str, default='/data/kits/train')
 parser.add_argument('--process_num', type=int, default=10)
 parser.add_argument('--dataset', type=str, default='kits', choices=['kits', 'lits'])
 parser.add_argument('--task', type=str, default='tumor', choices=['tumor', 'organ'])
+parser.add_argument('--mode', type=str, default='train')
 
 args = parser.parse_args()
 
@@ -24,7 +25,11 @@ def main():
     if not os.path.exists(list_path):
         os.mkdir(list_path)
 
-    paths = glob(os.path.join(args.in_path, "case_*/imaging*.nii.gz"))
+    if args.dataset == 'kits':
+        paths = glob(os.path.join(args.in_path, "case_*/imaging*.nii.gz"))
+    elif args.dataset == 'lits':
+        paths = glob(os.path.join(args.in_path, "volume-*.nii"))
+
     pool = Pool(args.process_num)
     result = pool.map(make_slice, paths)
 
@@ -53,10 +58,10 @@ def make_slice(path):
         mask_slice = seg[i, ...]
         np.savez_compressed(f'{args.out_path}/{args.mode}/{case}_{i}.npz', ct=ct_slice, mask=mask_slice)
         if args.task == 'organ':
-            if args.generate_tumor_index and np.any(mask_slice > 0):
+            if np.any(mask_slice > 0):
                 result.append(f'{case}_{i}.npz')
         elif args.task == 'tumor':
-            if args.generate_tumor_index and np.any(mask_slice > 1):
+            if np.any(mask_slice > 1):
                 result.append(f'{case}_{i}.npz')
 
     print(f'complete making slices of {case}')
